@@ -33,5 +33,10 @@ class TodosController < ApplicationController
         redirect_to todos_url
     end
 
+    def edit
+        @todo = Todo.find(params[:id])
+        render :edit
+    end
+
 
 end
