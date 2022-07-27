@@ -11,6 +11,14 @@
   </head>
 
   <body>
+    <%= render "shared/navbar" %>
+    <% flash.each do |key, message| %>
+      <div class="alert <%= flash_class(key) %> alert-dismissible fade show text-center" role="alert">
+        <%= message %>
+        <button type="button" class="btn btn-close" data-bs-dismiss="alert">
+        </button>
+      </div>
+    <% end %>
     <main role="main" class="container">
       <%= yield %>
     </main>
