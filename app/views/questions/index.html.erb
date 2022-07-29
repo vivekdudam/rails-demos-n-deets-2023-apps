@@ -15,8 +15,10 @@
         <td><%= question.question %></td>
         <td class="text-nowrap">
             <%= link_to 'show', quiz_question_path(@quiz, question), class: 'btn btn-outline-secondary btn-sm' %>
-            <%= link_to 'edit', edit_quiz_question_path(@quiz, question), class: 'btn btn-outline-secondary btn-sm' %>
-            <%= link_to 'destroy', quiz_question_path(@quiz, question), data: { "turbo-method": :delete }, class: 'btn btn-outline-secondary btn-sm' %>
+            <% if @quiz.creator == current_user %>
+              <%= link_to 'edit', edit_quiz_question_path(@quiz, question), class: 'btn btn-outline-secondary btn-sm' %>
+              <%= link_to 'destroy', quiz_question_path(@quiz, question), data: { "turbo-method": :delete }, class: 'btn btn-outline-secondary btn-sm' %>
+            <% end %>
         </td>
       </tr>
     <% end %>
@@ -24,9 +26,12 @@
 
 </table>
 
+
+<% if @quiz.creator == current_user %>
 <p>
   <%= link_to "New Question", new_quiz_question_path(@quiz), class: "btn btn-secondary"%>
 </p>
+<% end %>
 
 <p>
   <%= link_to 'Quiz', quiz_path(@quiz), class: 'btn btn-outline-secondary' %>
