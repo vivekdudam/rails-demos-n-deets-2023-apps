@@ -18,5 +18,6 @@ require "test_helper"
 class ReviewTest < ActiveSupport::TestCase
   test "all fixtures should be valid" do
     review_one = reviews(:one)
+    assert review_one.valid?, review_one.errors.full_messages.inspect
   end
 end
