@@ -17,6 +17,6 @@ require "test_helper"
 
 class ReviewTest < ActiveSupport::TestCase
   test "all fixtures should be valid" do
-
+    review_one = reviews(:one)
   end
 end
