@@ -16,5 +16,6 @@
 class Review < ApplicationRecord
 
     validates :title, presence: true
-    
+    validates :body, length: { minimum: 50 }
+
 end
