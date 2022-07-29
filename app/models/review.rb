@@ -18,5 +18,6 @@ class Review < ApplicationRecord
     validates :title, presence: true
     validates :body, length: { minimum: 50 }
     validates :score, numericality: true
+    validates :genre, inclusion: { in: ['Action', 'Science Fiction', 'Drama', 'Horror', 'Comedy', 'Musical'] }
 
 end
